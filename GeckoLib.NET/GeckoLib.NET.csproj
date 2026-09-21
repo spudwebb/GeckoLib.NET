@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- netstandard2.0 covers .NET Framework 4.6.1+, .NET Core 2.0+ and .NET 5+ with one
+         build. net462 is kept as well so consumers on the old framework get an assembly
+         built directly against it rather than through the compatibility shims. -->
+    <TargetFrameworks>netstandard2.0;net462</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <AssemblyName>GeckoLib.NET</AssemblyName>
+    <RootNamespace>GeckoLib.NET</RootNamespace>
+
+    <!-- Emit the XML docs so the compiler validates the doc comments. Malformed XML in a
+         comment then shows up as CS1570 at build time instead of silently shipping.
+         CS1591 (missing doc on a public member) is not something we want to enforce. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>GeckoLib.NET</PackageId>
+    <Version>0.1.2</Version>
+    <Authors>spud</Authors>
+    <Product>GeckoLib.NET</Product>
+    <Title>GeckoLib.NET</Title>
+    <Description>
+      A client library for Gecko Alliance spa packs over the in.touch2 UDP protocol.
+      Discovers spas on the local network, reads and writes the spa pack structure, and
+      exposes pumps, lights, blowers, the heater, water care and sensors as objects.
+      A C# port of the Python geckolib.
+    </Description>
+    <PackageTags>gecko;in.touch2;intouch2;spa;hot-tub;home-automation;udp</PackageTags>
+
+    <!-- geckolib is GPL-3.0-or-later and this is a derivative work, so it inherits those
+         terms. See LICENSE at the repository root. -->
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Company>spud</Company>
+    <Copyright>Copyright © spud 2026</Copyright>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The spa pack definitions, extracted from geckolib's generated modules by
+         tools/extract_packdata.py. See Packs/PackDataResource.cs. -->
+    <EmbeddedResource Include="Packs\packdata.json.gz">
+      <LogicalName>packdata.json.gz</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+</Project>

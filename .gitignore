@@ -1,0 +1,14 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+packages/
+
+# Note: GeckoLib.NET/Packs/packdata.json.gz IS tracked. It is generated, but it is
+# derived from geckolib's generated modules rather than from anything in this repo,
+# and the upstream SpaPackStruct XML it ultimately came from is not publicly available.
+
+# Python bytecode from the tools/
+__pycache__/
+*.pyc
