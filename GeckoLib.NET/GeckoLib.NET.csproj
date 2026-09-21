@@ -27,8 +27,21 @@
       Discovers spas on the local network, reads and writes the spa pack structure, and
       exposes pumps, lights, blowers, the heater, water care and sensors as objects.
       A C# port of the Python geckolib.
+
+      Licensed GPL-3.0-or-later, inherited from geckolib: software that references this
+      package has to be licensed under the GPL too.
     </Description>
     <PackageTags>gecko;in.touch2;intouch2;spa;hot-tub;home-automation;udp</PackageTags>
+
+    <PackageProjectUrl>https://github.com/spudwebb/GeckoLib.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/spudwebb/GeckoLib.NET.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <!-- Source Link: ships the commit and repository in the package so a consumer can
+         step into this library's source from their own debugger. Built into the SDK
+         since 8.0.100, so it needs no package reference. -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
     <!-- geckolib is GPL-3.0-or-later and this is a derivative work, so it inherits those
          terms. See LICENSE at the repository root. -->

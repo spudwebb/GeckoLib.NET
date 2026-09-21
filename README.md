@@ -158,4 +158,4 @@ here has one. Everything else in geckolib's automation layer is here.
 Copyright © 2026 spud.
 
 geckolib is GPL-3.0, and this is a derivative work, so the same terms apply. See
-[LICENSE](LICENSE).
+[LICENSE](https://github.com/spudwebb/GeckoLib.NET/blob/main/LICENSE).
